@@ -1,0 +1,45 @@
+{
+  "name": "temporal-hello-world",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "build": "tsc --build",
+    "build.watch": "tsc --build --watch",
+    "lint": "eslint .",
+    "start": "ts-node src/worker.ts",
+    "start.watch": "nodemon src/worker.ts",
+    "workflow": "ts-node src/client.ts",
+    "jest": "jest"
+  },
+  "nodemonConfig": {
+    "execMap": {
+      "ts": "ts-node"
+    },
+    "ext": "ts",
+    "watch": [
+      "src"
+    ]
+  },
+  "dependencies": {
+    "@temporalio/activity": "^1.4.0",
+    "@temporalio/client": "^1.4.0",
+    "@temporalio/testing": "^1.4.0",
+    "@temporalio/worker": "^1.4.0",
+    "@temporalio/workflow": "^1.4.0",
+    "nanoid": "3.x"
+  },
+  "devDependencies": {
+    "jest": "^29.1.2",
+    "@tsconfig/node18": "^1.0.0",
+    "@types/jest": "^29.1.1",
+    "@typescript-eslint/eslint-plugin": "^5.0.0",
+    "@typescript-eslint/parser": "^5.0.0",
+    "eslint": "^7.32.0",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-plugin-deprecation": "^1.2.1",
+    "nodemon": "^2.0.12",
+    "ts-jest": "^29.0.3",
+    "ts-node": "^10.8.1",
+    "typescript": "^4.4.2"
+  }
+}
