@@ -1,7 +1,7 @@
 import { TestWorkflowEnvironment } from '@temporalio/testing';
 import { Worker, Runtime, DefaultLogger, LogEntry } from '@temporalio/worker';
 import {moneyTransfer} from './workflows';
-import type PaymentDetails from './shared';
+import type {PaymentDetails} from './shared';
 
 let testEnv: TestWorkflowEnvironment;
 

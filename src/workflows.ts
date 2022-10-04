@@ -1,7 +1,7 @@
 // @@@SNIPSTART hello-world-project-template-ts-workflow
 import { proxyActivities } from '@temporalio/workflow';
 import type * as activities from './activities';
-import type PaymentDetails from './shared'
+import type {PaymentDetails} from './shared';
 
 const { withdraw, deposit} = proxyActivities<typeof activities>({
 retry: {

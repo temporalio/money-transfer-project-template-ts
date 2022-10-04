@@ -1,10 +1,14 @@
+// @@@SNIPSTART hello-world-project-template-ts-constants
+export const namespace = "default";
+export const taskQueueName = "money-transfer";
+// @@@SNIPEND
+
 // @@@SNIPSTART hello-world-project-template-ts-shared
 
-type PaymentDetails = {
+export type PaymentDetails = {
 	amount: number,
 	sourceAccount: string,
 	targetAccount: string,
 }
 
-export default PaymentDetails;
 // @@@SNIPEND

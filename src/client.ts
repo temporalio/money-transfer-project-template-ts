@@ -2,9 +2,9 @@
 import { Connection, WorkflowClient } from '@temporalio/client';
 import { moneyTransfer } from './workflows';
 import { nanoid } from 'nanoid';
-import type PaymentDetails from './shared';
+import type {PaymentDetails} from './shared';
 
-import { namespace, taskQueueName } from './constants';
+import { namespace, taskQueueName } from './shared';
 
 async function run() {
   const connection = await Connection.connect({});

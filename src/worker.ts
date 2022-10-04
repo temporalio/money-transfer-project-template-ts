@@ -1,7 +1,7 @@
 // @@@SNIPSTART hello-world-project-template-ts-worker
 import { Worker } from '@temporalio/worker';
 import * as activities from './activities';
-import { namespace, taskQueueName } from './constants';
+import { namespace, taskQueueName } from './shared';
 
 async function run() {
 
