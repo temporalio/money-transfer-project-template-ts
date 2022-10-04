@@ -1,3 +1,4 @@
+// @@@SNIPSTART hello-world-project-template-ts-worker
 import { Worker } from '@temporalio/worker';
 import * as activities from './activities';
 import { namespace, taskQueueName } from './constants';
@@ -18,3 +19,4 @@ run().catch((err) => {
   console.error(err);
   process.exit(1);
 });
+// @@@SNIPEND

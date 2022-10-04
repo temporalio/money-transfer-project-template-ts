@@ -1,3 +1,4 @@
+// @@@SNIPSTART hello-world-project-template-ts-workflow
 import { proxyActivities } from '@temporalio/workflow';
 import type * as activities from './activities';
 import type PaymentDetails from './shared'
@@ -20,5 +21,4 @@ export async function moneyTransfer(details: PaymentDetails): Promise<string> {
   return `Transfer complete (trasaction IDs: ${withDrawOutput}, ${depositOutput}`;
 
 }
-
-
+// @@@SNIPEND

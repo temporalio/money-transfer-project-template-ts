@@ -1,3 +1,5 @@
+// @@@SNIPSTART hello-world-project-template-ts-shared
+
 type PaymentDetails = {
 	amount: number,
 	sourceAccount: string,
@@ -5,3 +7,4 @@ type PaymentDetails = {
 }
 
 export default PaymentDetails;
+// @@@SNIPEND
