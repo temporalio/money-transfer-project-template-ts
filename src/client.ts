@@ -1,7 +1,6 @@
-// @@@SNIPSTART hello-world-project-template-ts-client
+// @@@SNIPSTART money-transfer-project-template-ts-start-workflow
 import { Connection, WorkflowClient } from '@temporalio/client';
 import { moneyTransfer } from './workflows';
-import { nanoid } from 'nanoid';
 import type {PaymentDetails} from './shared';
 
 import { namespace, taskQueueName } from './shared';
@@ -16,10 +15,12 @@ async function run() {
     targetAccount: "200",
   };
 
+	console.log(`Starting transfer from account ${details.sourceAccount} to account ${details.targetAccount} for ${details.amount}`)
+
   const handle = await client.start(moneyTransfer, {
     args: [details],
     taskQueue: taskQueueName,
-    workflowId: 'workflow-' + nanoid(),
+    workflowId: 'pay-invoice-801',
   });
 
   console.log(`Started workflow ${handle.workflowId} with RunID ${handle.firstExecutionRunId}`);

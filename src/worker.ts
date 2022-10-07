@@ -5,6 +5,8 @@ import { namespace, taskQueueName } from './shared';
 
 async function run() {
 
+  // Register Workflows and Activities with the Worker and connect to
+  // the Temporal server.
   const worker = await Worker.create({
     workflowsPath: require.resolve('./workflows'),
     activities,
@@ -12,6 +14,7 @@ async function run() {
     taskQueue: taskQueueName,
   });
 
+  // Start accepting tasks from the Task Queue.
   await worker.run();
 }
 
