@@ -5,12 +5,12 @@
   "scripts": {
     "build": "tsc --build",
     "build.watch": "tsc --build --watch",
-    "lint": "eslint .",
-    "format": "prettier --write .",
-    "worker": "ts-node src/worker.ts",
-    "worker.watch": "nodemon src/worker.ts",
     "client": "ts-node src/client.ts",
-    "jest": "jest"
+    "format": "prettier --write .",
+    "lint": "eslint .",
+    "test": "jest",
+    "worker": "ts-node src/worker.ts",
+    "worker.watch": "nodemon src/worker.ts"
   },
   "nodemonConfig": {
     "execMap": {
