@@ -4,7 +4,6 @@ import * as activities from './activities';
 import { namespace, taskQueueName } from './shared';
 
 async function run() {
-
   // Register Workflows and Activities with the Worker and connect to
   // the Temporal server.
   const worker = await Worker.create({
