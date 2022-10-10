@@ -16,7 +16,7 @@ async function run() {
   };
 
   console.log(
-    `Starting transfer from account ${details.sourceAccount} to account ${details.targetAccount} for ${details.amount}`
+    `Starting transfer from account ${details.sourceAccount} to account ${details.targetAccount} for $${details.amount}`
   );
 
   const handle = await client.start(moneyTransfer, {
