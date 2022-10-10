@@ -6,7 +6,7 @@ import type { PaymentDetails } from './shared';
 import { namespace, taskQueueName } from './shared';
 
 async function run() {
-  const connection = await Connection.connect({});
+  const connection = await Connection.connect();
   const client = new WorkflowClient({ connection, namespace });
 
   const details: PaymentDetails = {

@@ -1,8 +1,8 @@
 class BankingClient {
-  hostname: string;
+  #hostname: string;
 
   constructor(host: string) {
-    this.hostname = host;
+    this.#hostname = host;
   }
 
   withdraw(amount: number, fromAccount: string): Promise<string> {
