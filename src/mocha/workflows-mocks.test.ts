@@ -61,7 +61,7 @@ describe("Money Transfer workflow", () => {
       connection: nativeConnection,
       taskQueue,
       workflowsPath: require.resolve("../workflows"),
-      activities
+      activities,
     });
 
     const invalidDetails: PaymentDetails = {
@@ -96,7 +96,7 @@ describe("Money Transfer workflow", () => {
       connection: nativeConnection,
       taskQueue,
       workflowsPath: require.resolve("../workflows"),
-      activities
+      activities,
     });
 
     const invalidDetails: PaymentDetails = {
@@ -131,7 +131,7 @@ describe("Money Transfer workflow", () => {
       connection: nativeConnection,
       taskQueue,
       workflowsPath: require.resolve("../workflows"),
-      activities
+      activities,
     });
 
     const invalidDetails: PaymentDetails = {
