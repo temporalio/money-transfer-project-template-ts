@@ -1,9 +1,9 @@
 // @@@SNIPSTART money-transfer-project-template-ts-start-workflow
-import { Connection, WorkflowClient } from "@temporalio/client";
-import { moneyTransfer } from "./workflows";
-import type { PaymentDetails } from "./shared";
+import { Connection, WorkflowClient } from '@temporalio/client';
+import { moneyTransfer } from './workflows';
+import type { PaymentDetails } from './shared';
 
-import { namespace, taskQueueName } from "./shared";
+import { namespace, taskQueueName } from './shared';
 
 async function run() {
   const connection = await Connection.connect();
@@ -11,9 +11,9 @@ async function run() {
 
   const details: PaymentDetails = {
     amount: 400,
-    sourceAccount: "85-150",
-    targetAccount: "43-812",
-    referenceId: "12345",
+    sourceAccount: '85-150',
+    targetAccount: '43-812',
+    referenceId: '12345',
   };
 
   console.log(
@@ -23,7 +23,7 @@ async function run() {
   const handle = await client.start(moneyTransfer, {
     args: [details],
     taskQueue: taskQueueName,
-    workflowId: "pay-invoice-801",
+    workflowId: 'pay-invoice-801',
   });
 
   console.log(
