@@ -25,7 +25,11 @@ export async function deposit(details: PaymentDetails): Promise<string> {
   );
   const bank2 = new BankingService('bank2.example.com');
   // Uncomment the next line and comment lines 27-38 to simulate an unknown failure
-  // return await bank2.depositThatFails(details.targetAccount, details.amount, details.referenceId);
+  return await bank2.depositThatFails(
+    details.targetAccount,
+    details.amount,
+    details.referenceId
+  );
   try {
     const result = await bank2.deposit(
       details.sourceAccount,
