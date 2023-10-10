@@ -47,3 +47,4 @@ export async function moneyTransfer(details: PaymentDetails): Promise<string> {
   }
   return `Transfer complete (transaction IDs: ${withdrawResult}, ${depositResult})`;
 }
+// @@@SNIPEND
