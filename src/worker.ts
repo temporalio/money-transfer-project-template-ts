@@ -1,4 +1,4 @@
-// @@@SNIPSTART hello-world-project-template-ts-worker
+// @@@SNIPSTART money-transfer-project-template-ts-worker
 import { Worker } from '@temporalio/worker';
 import * as activities from './activities';
 import { namespace, taskQueueName } from './shared';

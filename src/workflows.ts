@@ -1,4 +1,4 @@
-// @@@SNIPSTART hello-world-project-template-ts-workflow
+// @@@SNIPSTART money-transfer-project-template-ts-workflow
 import { proxyActivities } from '@temporalio/workflow';
 import { ApplicationFailure } from '@temporalio/common';
 

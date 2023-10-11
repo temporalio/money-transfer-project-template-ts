@@ -1,4 +1,4 @@
-// @@@SNIPSTART hello-world-project-template-ts-withdraw-activity
+// @@@-project-template-ts-withdraw-activity
 import type { PaymentDetails } from './shared';
 import { BankingService } from './banking-client';
 
@@ -20,7 +20,7 @@ export async function withdraw(details: PaymentDetails): Promise<string> {
 }
 // @@@SNIPEND
 
-// @@@SNIPSTART hello-world-project-template-ts-deposit-activity
+// @@@SNIPSTART money-transfer-project-template-ts-deposit-activity
 export async function deposit(details: PaymentDetails): Promise<string> {
   console.log(
     `Depositing $${details.amount} into account ${details.targetAccount}.\n\n`
@@ -45,7 +45,7 @@ export async function deposit(details: PaymentDetails): Promise<string> {
 }
 // @@@SNIPEND
 
-// @@@SNIPSTART hello-world-project-template-ts-refund-activity
+// @@@SNIPSTART money-transfer-project-template-ts-refund-activity
 export async function refund(details: PaymentDetails): Promise<string> {
   console.log(
     `Refunding $${details.amount} to account ${details.sourceAccount}.\n\n`
