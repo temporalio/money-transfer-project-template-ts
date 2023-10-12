@@ -1,4 +1,4 @@
-// @@@ money-transfer-project-template-ts-withdraw-activity
+// @@@SNIPSTART money-transfer-project-template-ts-withdraw-activity
 import type { PaymentDetails } from './shared';
 import { BankingService } from './banking-client';
 
@@ -17,7 +17,7 @@ export async function withdraw(details: PaymentDetails): Promise<string> {
   } catch (error) {
     throw new Error('Unexpected error occurred');
   }
-}
+};
 // @@@SNIPEND
 
 // @@@SNIPSTART money-transfer-project-template-ts-deposit-activity
