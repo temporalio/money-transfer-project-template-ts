@@ -1,4 +1,4 @@
-// @@@-project-template-ts-withdraw-activity
+// @@@ money-transfer-project-template-ts-withdraw-activity
 import type { PaymentDetails } from './shared';
 import { BankingService } from './banking-client';
 
