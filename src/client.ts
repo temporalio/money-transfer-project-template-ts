@@ -11,8 +11,9 @@ async function run() {
 
   const details: PaymentDetails = {
     amount: 400,
-    sourceAccount: '100',
-    targetAccount: '200',
+    sourceAccount: '85-150',
+    targetAccount: '43-812',
+    referenceId: '12345',
   };
 
   console.log(
@@ -25,7 +26,9 @@ async function run() {
     workflowId: 'pay-invoice-801',
   });
 
-  console.log(`Started Workflow ${handle.workflowId} with RunID ${handle.firstExecutionRunId}`);
+  console.log(
+    `Started Workflow ${handle.workflowId} with RunID ${handle.firstExecutionRunId}`
+  );
   console.log(await handle.result());
 }
 
