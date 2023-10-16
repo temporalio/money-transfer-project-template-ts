@@ -1,6 +1,6 @@
 # Temporal Money Transfer example in TypeScript
 
-This is the companion code for the tutorial [Run your first Temporal Application with TypeScript](https://learn.temporal.io/getting_started/go/first_program_in_typescript).
+This is the companion code for the tutorial [Run your first Temporal Application with TypeScript](https://learn.temporal.io/getting_started/typescript/first_program_in_typescript).
 
 ### Running this sample:
 
