@@ -26,6 +26,7 @@
     "@temporalio/client": "^1.8.6",
     "@temporalio/worker": "^1.8.6",
     "@temporalio/workflow": "^1.8.6",
+    "@temporalio/common": "^1.8.6",
     "mocha": "^10.2.0",
     "nanoid": "3.x"
   },
