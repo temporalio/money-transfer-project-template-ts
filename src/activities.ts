@@ -34,7 +34,7 @@ export async function deposit(details: PaymentDetails): Promise<string> {
   // );
   try {
     const result = await bank2.deposit(
-      details.sourceAccount,
+      details.targetAccount,
       details.amount,
       details.referenceId
     );
