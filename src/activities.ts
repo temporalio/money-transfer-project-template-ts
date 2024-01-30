@@ -15,9 +15,10 @@ export async function withdraw(details: PaymentDetails): Promise<string> {
     );
     return result;
   } catch (error) {
-    throw new Error('Unexpected error occurred');
+    console.warn('withdrawal error:', error);
+    throw error;
   }
-};
+}
 // @@@SNIPEND
 
 // @@@SNIPSTART money-transfer-project-template-ts-deposit-activity
@@ -34,13 +35,14 @@ export async function deposit(details: PaymentDetails): Promise<string> {
   // );
   try {
     const result = await bank2.deposit(
-      details.sourceAccount,
+      details.targetAccount,
       details.amount,
       details.referenceId
     );
     return result;
   } catch (error) {
-    throw new Error('Unexpected error occurred');
+    console.warn('deposit error:', error);
+    throw error;
   }
 }
 // @@@SNIPEND
@@ -59,7 +61,8 @@ export async function refund(details: PaymentDetails): Promise<string> {
     );
     return result;
   } catch (error) {
-    throw new Error('Unexpected error occurred');
+    console.warn('refund error:', error);
+    throw error;
   }
 }
 // @@@SNIPEND
