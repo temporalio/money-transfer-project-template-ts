@@ -1,7 +1,4 @@
-import {
-  MockActivityEnvironment,
-  TestWorkflowEnvironment,
-} from '@temporalio/testing';
+import { MockActivityEnvironment } from '@temporalio/testing';
 import { it } from 'mocha';
 import assert from 'assert';
 import type { PaymentDetails } from '../shared';

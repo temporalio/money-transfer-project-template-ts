@@ -18,7 +18,7 @@ describe('Money Transfer workflow', () => {
     await testEnv?.teardown();
   });
 
-  it('successfully withdraws and deposits given exisisting bank account information', async () => {
+  it('successfully withdraws and deposits given existing bank account information', async () => {
     const { client, nativeConnection } = testEnv;
     const taskQueue = 'test';
 
