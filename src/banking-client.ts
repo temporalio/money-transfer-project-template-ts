@@ -73,7 +73,7 @@ export class BankingService {
 
   // Withdraw simulates a Withdrawal from a bank.
   // Accepts the sourceAccount (string), amount (number), and a referenceId (string) for idempotent transaction tracking.
-  // Returns a transaction id when successful, or throw various errors based on amount and account number.
+  // Returns a transaction id when successful, or throws various errors based on amount and account number.
   async withdraw(
     sourceAccount: string,
     amount: number,
@@ -91,7 +91,7 @@ export class BankingService {
 
   // Deposit simulates a deposit into a bank.
   // Accepts the targetAccount (string), amount (number), and a referenceId (string) for idempotent transaction tracking.
-  // Returns a transaction id when successful, or throw InvalidAccountError if the account is invalid
+  // Returns a transaction id when successful, or throws InvalidAccountError if the account is invalid
   async deposit(
     targetAccount: string,
     amount: number,
