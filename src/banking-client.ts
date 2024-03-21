@@ -70,7 +70,7 @@ export class BankingService {
     return result;
   }
 
-  // Withdraw simulates a Withdrawwal from a bank.
+  // Withdraw simulates a withdrawal from a bank.
   // Accepts the sourceAccount (string), amount (number), and an referenceId (string) for idempotent transaction tracking.
   // Returns a transaction id when successful
   // Returns various errors based on amount and account number.
@@ -99,8 +99,8 @@ export class BankingService {
 
   // depositThatFails simulates an unknonw error.
   async depositThatFails(
-    targetAccount: string, 
-    amount: number, 
+    targetAccount: string,
+    amount: number,
     referenceId: string
   ): Promise<string> {
     throw new Error('This deposit has failed');
