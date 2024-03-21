@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 // This code simulates a client for a hypothetical banking service.
 // It supports both withdrawals and deposits, and returns a transaction ID.
 //
@@ -74,7 +75,11 @@ export class BankingService {
   // Accepts the sourceAccount (string), amount (number), and an referenceId (string) for idempotent transaction tracking.
   // Returns a transaction id when successful
   // Returns various errors based on amount and account number.
-  withdraw(sourceAccount: string, amount: number, referenceId: string): string {
+  async withdraw(
+    sourceAccount: string,
+    amount: number,
+    referenceId: string
+  ): Promise<string> {
     const acct = mockBank.findAccount(sourceAccount);
     if (!acct) {
       throw new InvalidAccountError();
@@ -89,7 +94,11 @@ export class BankingService {
   // Accepts the targetAccount (string), amount (number), and an referenceId (string) for idempotent transaction tracking.
   // Returns a transaction id when successful
   // Returns InvalidAccountError if the account is invalid
-  deposit(targetAccount: string, amount: number, referenceId: string): string {
+  async deposit(
+    targetAccount: string,
+    amount: number,
+    referenceId: string
+  ): Promise<string> {
     const acct = mockBank.findAccount(targetAccount);
     if (!acct) {
       throw new InvalidAccountError();
@@ -98,11 +107,11 @@ export class BankingService {
   }
 
   // depositThatFails simulates an unknown error.
-  depositThatFails(
+  async depositThatFails(
     targetAccount: string,
     amount: number,
     referenceId: string
-  ): string {
+  ): Promise<string> {
     throw new Error('This deposit has failed');
   }
 }

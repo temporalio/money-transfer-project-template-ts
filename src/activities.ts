@@ -7,13 +7,12 @@ export async function withdraw(details: PaymentDetails): Promise<string> {
     `Withdrawing $${details.amount} from account ${details.sourceAccount}.\n\n`
   );
   const bank1 = new BankingService('bank1.example.com');
-
   return await bank1.withdraw(
     details.sourceAccount,
     details.amount,
     details.referenceId
   );
-};
+}
 // @@@SNIPEND
 
 // @@@SNIPSTART money-transfer-project-template-ts-deposit-activity
@@ -22,7 +21,7 @@ export async function deposit(details: PaymentDetails): Promise<string> {
     `Depositing $${details.amount} into account ${details.targetAccount}.\n\n`
   );
   const bank2 = new BankingService('bank2.example.com');
-  // Uncomment lines 26-30 and comment lines 31-35 to simulate an unknown failure
+  // Uncomment lines 25-29 and comment lines 30-34 to simulate an unknown failure
   // return await bank2.depositThatFails(
   //   details.targetAccount,
   //   details.amount,
@@ -42,15 +41,10 @@ export async function refund(details: PaymentDetails): Promise<string> {
     `Refunding $${details.amount} to account ${details.sourceAccount}.\n\n`
   );
   const bank1 = new BankingService('bank1.example.com');
-  try {
-    const result = await bank1.deposit(
-      details.sourceAccount,
-      details.amount,
-      details.referenceId
-    );
-    return result;
-  } catch (error) {
-    throw new Error('Unexpected error occurred');
-  }
+  return await bank1.deposit(
+    details.sourceAccount,
+    details.amount,
+    details.referenceId
+  );
 }
 // @@@SNIPEND
