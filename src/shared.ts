@@ -1,9 +1,7 @@
-// @@@SNIPSTART money-transfer-project-template-ts-constants
-export const namespace = 'default';
-export const taskQueueName = 'money-transfer';
+// @@@SNIPSTART money-transfer-project-template-ts-worker-namespace
+export const namespace: string = process.env.TEMPORAL_NAMESPACE;
 // @@@SNIPEND
-
-// @@@SNIPSTART money-transfer-project-template-ts-shared
+export const taskQueueName: string = 'money-transfer';
 
 export type PaymentDetails = {
   amount: number;
@@ -11,5 +9,3 @@ export type PaymentDetails = {
   targetAccount: string;
   referenceId: string;
 };
-
-// @@@SNIPEND
