@@ -1,5 +1,4 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
-// @@@SNIPSTART money-transfer-project-template-ts-workflow
 import { proxyActivities } from '@temporalio/workflow';
 import { ApplicationFailure } from '@temporalio/common';
 
@@ -48,4 +47,3 @@ export async function moneyTransfer(details: PaymentDetails): Promise<string> {
   }
   return `Transfer complete (transaction IDs: ${withdrawResult}, ${depositResult})`;
 }
-// @@@SNIPEND

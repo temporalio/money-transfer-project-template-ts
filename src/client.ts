@@ -1,4 +1,3 @@
-// @@@SNIPSTART money-transfer-project-template-ts-start-workflow
 import { Connection, WorkflowClient } from '@temporalio/client';
 import { moneyTransfer } from './workflows';
 import type { PaymentDetails } from './shared';
@@ -36,4 +35,3 @@ run().catch((err) => {
   console.error(err);
   process.exit(1);
 });
-// @@@SNIPEND
