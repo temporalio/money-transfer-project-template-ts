@@ -30,6 +30,8 @@ async function run() {
     `Started Workflow ${handle.workflowId} with RunID ${handle.firstExecutionRunId}`
   );
   console.log(await handle.result());
+
+  connection.close()
 }
 
 run().catch((err) => {
