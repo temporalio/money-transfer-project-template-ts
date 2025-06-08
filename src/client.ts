@@ -1,12 +1,42 @@
 // @@@SNIPSTART money-transfer-project-template-ts-start-workflow
-import { Connection, WorkflowClient } from '@temporalio/client';
+import { Connection, ConnectionOptions, WorkflowClient } from '@temporalio/client';
 import { moneyTransfer } from './workflows';
 import type { PaymentDetails } from './shared';
+import { getEnv } from './helpers';
 
 import { namespace, taskQueueName } from './shared';
 
 async function run() {
-  const connection = await Connection.connect();
+  const { address, namespace, clientCert, clientKey, apiKey } = await getEnv();
+
+
+  let connectionOptions: ConnectionOptions = {
+    address: address,
+  };
+
+  // Configure mTLS authentication if certificates are provided
+  if (clientCert && clientKey) {
+    connectionOptions.tls = {
+      clientCertPair: {
+        crt: clientCert,
+        key: clientKey,
+      },
+    };
+  } else if (apiKey) {
+    // Configure API key authentication
+    connectionOptions.tls = true;
+    connectionOptions.apiKey = apiKey;
+    connectionOptions.metadata = {
+      'temporal-namespace': namespace,
+    };
+  } else {
+    // No authentication
+    connectionOptions.tls = false;
+  }
+
+  // Create the connection
+  const connection = await Connection.connect(connectionOptions);
+
   const client = new WorkflowClient({ connection, namespace });
 
   const details: PaymentDetails = {
