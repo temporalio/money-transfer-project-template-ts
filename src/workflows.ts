@@ -37,14 +37,14 @@ export async function moneyTransfer(details: PaymentDetails): Promise<string> {
     let refundResult;
     try {
       refundResult = await refund(details);
-      throw ApplicationFailure.create({
-        message: `Failed to deposit money into account ${details.targetAccount}. Money returned to ${details.sourceAccount}. Cause: ${depositErr}.`,
-      });
     } catch (refundErr) {
       throw ApplicationFailure.create({
         message: `Failed to deposit money into account ${details.targetAccount}. Money could not be returned to ${details.sourceAccount}. Cause: ${refundErr}.`,
       });
     }
+    throw ApplicationFailure.create({
+      message: `Failed to deposit money into account ${details.targetAccount}. Money returned to ${details.sourceAccount}. Cause: ${depositErr}.`,
+    });
   }
   return `Transfer complete (transaction IDs: ${withdrawResult}, ${depositResult})`;
 }
