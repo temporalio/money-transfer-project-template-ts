@@ -1,13 +1,21 @@
 // @@@SNIPSTART money-transfer-project-template-ts-start-workflow
 import { Connection, Client } from '@temporalio/client';
+import { loadClientConnectConfig } from '@temporalio/envconfig';
 import { moneyTransfer } from './workflows';
 import type { PaymentDetails } from './shared';
 
 import { namespace, taskQueueName } from './shared';
 
 async function run() {
-  const connection = await Connection.connect();
-  const client = new Client({ connection, namespace });
+
+  // Create the Temporal Client that connects to the Temporal Service.
+  // By default, it will connect to one running locally, on the standard
+  // port, and use the default Namespace. You can override this by setting
+  // the TEMPORAL_PROFILE environment variable to the name of a specific
+  // profile that you've set up using the Temporal CLI.
+  const config = loadClientConnectConfig();
+  const connection = await Connection.connect(config.connectionOptions);
+  const client = new Client({ connection, namespace: config.namespace });
 
   const details: PaymentDetails = {
     amount: 400,
@@ -31,7 +39,7 @@ async function run() {
   );
   console.log(await handle.result());
 
-  connection.close()
+  await connection.close();
 }
 
 run().catch((err) => {
