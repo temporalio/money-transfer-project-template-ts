@@ -6,7 +6,13 @@ import type { PaymentDetails } from './shared';
 import { namespace, taskQueueName } from './shared';
 
 async function run() {
-  const connection = await Connection.connect();
+  // Connect to Temporal Cloud using the gRPC endpoint and API key supplied via
+  // environment variables, with TLS enabled.
+  const connection = await Connection.connect({
+    address: process.env.TEMPORAL_ADDRESS,
+    tls: true,
+    apiKey: process.env.TEMPORAL_API_KEY,
+  });
   const client = new Client({ connection, namespace });
 
   const details: PaymentDetails = {

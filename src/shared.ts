@@ -1,5 +1,5 @@
 // @@@SNIPSTART money-transfer-project-template-ts-constants
-export const namespace = 'default';
+export const namespace = process.env.TEMPORAL_NAMESPACE || 'default';
 export const taskQueueName = 'money-transfer';
 // @@@SNIPEND
 
