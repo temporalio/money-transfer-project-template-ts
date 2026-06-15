@@ -1,18 +1,17 @@
 // @@@SNIPSTART money-transfer-project-template-ts-start-workflow
 import { Connection, Client } from '@temporalio/client';
+import { loadClientConnectConfig } from '@temporalio/envconfig';
 import { moneyTransfer } from './workflows';
 import type { PaymentDetails } from './shared';
 
-import { namespace, taskQueueName } from './shared';
+import { taskQueueName } from './shared';
 
 async function run() {
-  // Connect to Temporal Cloud using the gRPC endpoint and API key supplied via
-  // environment variables, with TLS enabled.
-  const connection = await Connection.connect({
-    address: process.env.TEMPORAL_ADDRESS,
-    tls: true,
-    apiKey: process.env.TEMPORAL_API_KEY,
-  });
+  // Connect to Temporal Cloud by loading the "cloud-setup" profile from the
+  // shared Temporal client config (temporal.toml), which supplies the Cloud
+  // address, namespace, TLS settings, and API key.
+  const { connectionOptions, namespace } = loadClientConnectConfig({ profile: 'cloud-setup' });
+  const connection = await Connection.connect(connectionOptions);
   const client = new Client({ connection, namespace });
 
   const details: PaymentDetails = {

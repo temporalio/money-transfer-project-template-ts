@@ -1,16 +1,15 @@
 // @@@SNIPSTART money-transfer-project-template-ts-worker
 import { NativeConnection, Worker } from '@temporalio/worker';
+import { loadClientConnectConfig } from '@temporalio/envconfig';
 import * as activities from './activities';
-import { namespace, taskQueueName } from './shared';
+import { taskQueueName } from './shared';
 
 async function run() {
-  // Connect to Temporal Cloud using the gRPC endpoint and API key supplied via
-  // environment variables, with TLS enabled.
-  const connection = await NativeConnection.connect({
-    address: process.env.TEMPORAL_ADDRESS,
-    tls: true,
-    apiKey: process.env.TEMPORAL_API_KEY,
-  });
+  // Connect to Temporal Cloud by loading the "cloud-setup" profile from the
+  // shared Temporal client config (temporal.toml), which supplies the Cloud
+  // address, namespace, TLS settings, and API key.
+  const { connectionOptions, namespace } = loadClientConnectConfig({ profile: 'cloud-setup' });
+  const connection = await NativeConnection.connect(connectionOptions);
 
   // Register Workflows and Activities with the Worker and connect to
   // the Temporal server.
