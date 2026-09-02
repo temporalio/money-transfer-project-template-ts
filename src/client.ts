@@ -1,12 +1,16 @@
 // @@@SNIPSTART money-transfer-project-template-ts-start-workflow
 import { Connection, Client } from '@temporalio/client';
+import { loadClientConnectConfig } from '@temporalio/envconfig';
 import { moneyTransfer } from './workflows';
 import type { PaymentDetails } from './shared';
 
-import { namespace, taskQueueName } from './shared';
+import { taskQueueName } from './shared';
 
 async function run() {
-  const connection = await Connection.connect();
+  const config = loadClientConnectConfig();
+  config.connectionOptions.address ||= 'localhost:7233';
+  const namespace = config.namespace || 'default';
+  const connection = await Connection.connect(config.connectionOptions);
   const client = new Client({ connection, namespace });
 
   const details: PaymentDetails = {
@@ -31,7 +35,7 @@ async function run() {
   );
   console.log(await handle.result());
 
-  connection.close()
+  await connection.close();
 }
 
 run().catch((err) => {
