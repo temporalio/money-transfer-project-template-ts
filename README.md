@@ -9,6 +9,10 @@ This is the companion code for the tutorial [Run your first Temporal Application
 1. `npm run worker` to start the Worker.
 1. In another shell, `npm run client` to run the Workflow Client.
 
+### Configuring the connection
+
+The sample uses the [Temporal SDK environment configuration API](https://typescript.temporal.io/api/namespaces/envconfig) to connect to Temporal. With no configuration, it connects to `localhost:7233` in the `default` Namespace. Set `TEMPORAL_PROFILE` to select a profile from your Temporal CLI configuration file; environment variables override profile values.
+
 The Workflow will return:
 
 ```bash
