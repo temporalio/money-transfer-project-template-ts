@@ -27,7 +27,7 @@ async function run() {
   const handle = await client.workflow.start(moneyTransfer, {
     args: [details],
     taskQueue: taskQueueName,
-    workflowId: 'pay-invoice-801',
+    workflowId: process.env.TEMPORAL_WORKFLOW_ID || 'pay-invoice-801',
   });
 
   console.log(
